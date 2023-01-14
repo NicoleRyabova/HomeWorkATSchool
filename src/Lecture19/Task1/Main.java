@@ -3,9 +3,9 @@ package Lecture19.Task1;
 public class Main {
     public static void main(String[] args) {
         //Создание объектов Dog,Cat и Horse
-        Dog dog = new Dog("Dog","food for dogs", 5, "Apartment",525000000,HealthState.HEALTHY);
-        Cat cat = new Cat("Cat", "food for cats", 3, "Apartment", 400000000, HealthState.HEALTHY);
-        Horse horse = new Horse("Horse", "food for horses", 10, "farm", 13000000,HealthState.UNHEALTHY);
+        Dog dog = new Dog("Dog", "food for dogs", 5, "Apartment", 4, HealthState.HEALTHY);
+        Cat cat = new Cat("Cat", "food for cats", 3, "Apartment", 1, HealthState.HEALTHY);
+        Horse horse = new Horse("Horse", "food for horses", 10, "farm", 10, HealthState.UNHEALTHY);
 
         //Вывод методов у каждого объекта
         System.out.println(dog + String.format("%n"));
@@ -22,10 +22,10 @@ public class Main {
         horse.makeSound();
         horse.eat();
         horse.sleep();
+        System.out.println();
 
         //Создание объекта ветерианара и вывод его методов
-        Vet vet = new Vet();
-        vet.getName("Alice");
-        vet.treatAnimal("Horse");
+        Vet vet = new Vet("Alice");
+        vet.treatAnimal(dog);
     }
 }
