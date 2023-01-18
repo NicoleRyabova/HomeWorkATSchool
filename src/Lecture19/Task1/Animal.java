@@ -6,15 +6,15 @@ public abstract class Animal {
     protected String food;
     protected int foodCounter;
     protected String location;
-    protected int counter;
+    //protected int counter;
     protected HealthState health;
 
-    public Animal(String name, String food, int foodCounter, String location, int counter, HealthState health) {
+    public Animal(String name, String food, int foodCounter, String location, HealthState health) {
         this.name = name;
         this.food = food;
         this.foodCounter = foodCounter;
         this.location = location;
-        this.counter = counter;
+       // this.counter = counter;
         this.health = health;
     }
 
@@ -38,7 +38,6 @@ public abstract class Animal {
                 "food = " + food + '\n' +
                 "food counter = " + foodCounter + '\n' +
                 "location = " + location + '\n' +
-                "counter = " + counter + '\n' +
                 "health = " + health;
     }
 }
