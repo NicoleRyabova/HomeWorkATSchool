@@ -21,7 +21,7 @@ public class Main {
 
         //Форматирование Date
         LocalDateTime timerDateStart = LocalDateTime.now();
-        System.out.println("Date:" + String.format("%n"));
+        System.out.println("Date:" + "\n");
         System.out.println(date);
         System.out.println(new SimpleDateFormat("yyyy/MM/dd").format(date));
         System.out.println(new SimpleDateFormat("HH-mm dd-MM-yy").format(date));
@@ -31,7 +31,7 @@ public class Main {
 
         //Форматирование LocalDate
         LocalDateTime timerLocalDateStart = LocalDateTime.now();
-        System.out.println(String.format("%n") + "Local date:" + String.format("%n"));
+        System.out.println("\n" + "Local date:" + "\n");
         System.out.println(localDate);
         System.out.println(DateTimeFormatter.ofPattern("dd MM yyyy").format(localDate));
         System.out.println(DateTimeFormatter.ofPattern("dd/MM/yy").format(localDate));
@@ -41,7 +41,7 @@ public class Main {
 
         //Форматирование LocalDateTime
         LocalDateTime timerLocalDateTimeStart = LocalDateTime.now();
-        System.out.println(String.format("%n") + "Local date time:" + String.format("%n"));
+        System.out.println("\n" + "Local date time:" + "\n");
         System.out.println(localDateTime);
         System.out.println(DateTimeFormatter.ofPattern("dd MM yyyy").format(localDateTime));
         System.out.println(DateTimeFormatter.ofPattern("dd/MM/yy").format(localDateTime));
@@ -51,7 +51,7 @@ public class Main {
 
         //Форматирование ZonedDateTime
         LocalDateTime timerZonedDateTimeStart = LocalDateTime.now();
-        System.out.println(String.format("%n") + "Zoned date time:" + String.format("%n"));
+        System.out.println("\n" + "Zoned date time:" + "\n");
         System.out.println(zonedDateTime);
         System.out.println(DateTimeFormatter.ISO_LOCAL_TIME.format(zonedDateTime));
         System.out.println(DateTimeFormatter.ofPattern("dd/MM/yyyy").format(zonedDateTime));
@@ -61,7 +61,7 @@ public class Main {
 
         //Форматирование GregorianCalendar
         LocalDateTime timerGregorianCalendarStart = LocalDateTime.now();
-        System.out.println(String.format("%n") + "Gregorian calendar:" + String.format("%n"));
+        System.out.println("\n" + "Gregorian calendar:" + "\n");
         System.out.println(gregorianCalendar.getTime());
         System.out.println(DateTimeFormatter.ISO_ZONED_DATE_TIME.format(gregorianCalendar.toZonedDateTime()));
         System.out.println(DateTimeFormatter.ISO_LOCAL_DATE_TIME.format(gregorianCalendar.toZonedDateTime()));
@@ -73,44 +73,45 @@ public class Main {
 
         //2
         Date date1 = new Date();
-        System.out.println(String.format("%n") + "Comparison between current time and birthday (Class date): ");
-        System.out.println(Duration.ofMillis(date1.getTime() - date.getTime()));
+        System.out.println("\n" + "Comparison between current time and birthday (Class date): ");
+        System.out.println(date1.getTime() - date.getTime());
 
         LocalDate localDate1 = LocalDate.now();
-        System.out.println(String.format("%n") + "Comparison between current time and birthday (Class Local Date): ");
-        System.out.println(Duration.between(localDate.atStartOfDay(), localDate1.atStartOfDay()));
+        System.out.println("\n" + "Comparison between current time and birthday (Class Local Date): ");
+        System.out.println(Duration.between(localDate.atStartOfDay(), localDate1.atStartOfDay()).toMillis());
 
         LocalDateTime localDateTime1 = LocalDateTime.now();
-        System.out.println(String.format("%n") + "Comparison between current time and birthday (Class Local Date Time): ");
-        System.out.println(Duration.between(localDateTime, localDateTime1));
+        System.out.println("\n" + "Comparison between current time and birthday (Class Local Date Time): ");
+        System.out.println(Duration.between(localDateTime.toLocalDate().atStartOfDay(), localDateTime1.toLocalDate().atStartOfDay()).toMillis());
 
         ZonedDateTime zonedDateTime1 = ZonedDateTime.now();
-        System.out.println(String.format("%n") + "Comparison between current time and birthday (Class date): ");
-        System.out.println(Duration.between(zonedDateTime, zonedDateTime1));
+        System.out.println("\n" + "Comparison between current time and birthday (Class Zoned Date Time): ");
+        System.out.println(Duration.between(zonedDateTime.toLocalDate().atStartOfDay(), zonedDateTime1.toLocalDate().atStartOfDay()).toMillis());
 
         GregorianCalendar gregorianCalendar1 = new GregorianCalendar();
-        System.out.println(String.format("%n") + "Comparison between current time and birthday (Class Gregorian Calendar): ");
-        System.out.println(Duration.between(gregorianCalendar.toZonedDateTime(), gregorianCalendar1.toZonedDateTime()));
+        System.out.println("\n" + "Comparison between current time and birthday (Class Gregorian Calendar): ");
+        // не знаю, что я тут натворила, но это работает:)
+        System.out.println(Duration.between(gregorianCalendar.toZonedDateTime().toLocalDateTime(), gregorianCalendar1.toZonedDateTime().toLocalDateTime()).toMillis());
 
         //3
-        System.out.println(String.format("%n") + "Run time of first task:");
+        System.out.println("\n" + "Run time of first task:");
         double sumOfTimeOfFirstTask = (countTimeOfFirstTaskEnd.getNano() - countTimeOfFirstTaskStart.getNano());
         System.out.println(sumOfTimeOfFirstTask);
 
         //4
         double sumOfTimeDate = Duration.between(timerDateStart, timerDateEnd).toMillis();
-        System.out.println("Run time of Date Class:" + sumOfTimeDate);
+        System.out.println("\n" + "Run time of Date Class:" + "\n" + sumOfTimeDate);
 
         double sumOfTimeLocalDate = Duration.between(timerLocalDateStart, timerLocalDateEnd).toMillis();
-        System.out.println(String.format("%n") + "Run time of Local Date Class:" + String.format("%n") + sumOfTimeLocalDate);
+        System.out.println("\n" + "Run time of Local Date Class:" + "\n" + sumOfTimeLocalDate);
 
         double sumOfTimeLocalDateTime = Duration.between(timerLocalDateTimeStart, timerLocalDateTimeEnd).toMillis();
-        System.out.println(String.format("%n") + "Run time of Local Date Time Class: " + String.format("%n") + sumOfTimeLocalDateTime);
+        System.out.println("\n" + "Run time of Local Date Time Class: " + "\n" + sumOfTimeLocalDateTime);
 
         double sumOfTimeZonedDateTime = Duration.between(timerZonedDateTimeStart, timerZonedDateTimeEnd).toMillis();
-        System.out.println(String.format("%n") + "Run time of Zoned Date Time Class: " + String.format("%n") + sumOfTimeZonedDateTime);
+        System.out.println("\n" + "Run time of Zoned Date Time Class: " + "\n" + sumOfTimeZonedDateTime);
 
         double sumOfTimeGregorianCalendar = Duration.between(timerGregorianCalendarStart, timerGregorianCalendarEnd).toMillis();
-        System.out.println(String.format("%n") + "Run time of Gregorian Calendar Class: " + String.format("%n") + sumOfTimeGregorianCalendar);
+        System.out.println("\n" + "Run time of Gregorian Calendar Class: " + "\n" + sumOfTimeGregorianCalendar);
     }
 }
