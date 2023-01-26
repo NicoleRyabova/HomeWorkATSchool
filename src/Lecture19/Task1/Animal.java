@@ -6,15 +6,14 @@ public abstract class Animal {
     protected String food;
     protected int foodCounter;
     protected String location;
-    //protected int counter;
     protected HealthState health;
+
 
     public Animal(String name, String food, int foodCounter, String location, HealthState health) {
         this.name = name;
         this.food = food;
         this.foodCounter = foodCounter;
         this.location = location;
-       // this.counter = counter;
         this.health = health;
     }
 
@@ -31,13 +30,14 @@ public abstract class Animal {
         System.out.println(name + " is sleeping");
     }
 
+
     //Метод для вывода сообщения
     @Override
     public String toString() {
         return "Name: " + name + '\n' +
                 "food = " + food + '\n' +
                 "food counter = " + foodCounter + '\n' +
-                "location = " + location + '\n' +
+                "location = " + location + '\n' + "counter" +
                 "health = " + health;
     }
 }
