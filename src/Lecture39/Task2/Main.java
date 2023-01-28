@@ -16,6 +16,6 @@ public class Main {
         System.out.println("Sum of two double variables: " + summa.sum(x, y));
         System.out.println("Sum of three double variables: " + summa.sum(x, y, z));
         System.out.println("Sum of one int and two double variables: " + summa.sum(a, x, y));
-        System.out.println("Sum of two Integer variables: " + summa.sum((Integer) a, (Integer) b));
+        System.out.println("Sum of two Integer variables: " + summa.sum(Integer.valueOf(a), Integer.valueOf(b)));
     }
 }
