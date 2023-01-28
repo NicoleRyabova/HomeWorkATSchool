@@ -1,16 +1,12 @@
 package Lecture31.Task3;
 
-import java.util.Arrays;
-
 public class Main {
     public static void main(String[] args) {
-        System.out.println(Arrays.toString(args));
-        //Получилось выполнить задание только через if'ы, пробовала через switch, но там в кажестве case нельзя подставить boolean значение, а без него я не знаю как...
+        int a = Integer.parseInt(args[0]);
+        int b = Integer.parseInt(args[1]);
+        boolean result = a % b == 0;
 
-        if (Arrays.equals(args[0].toCharArray(), args[1].toCharArray())) {
-            System.out.println("True");
-        } else {
-            System.out.println("False");
-        }
+        System.out.println("Given: " + "a = " + a + ", b = " + b);
+        System.out.println(result);
     }
 }
