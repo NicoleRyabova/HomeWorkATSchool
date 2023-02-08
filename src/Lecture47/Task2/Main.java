@@ -26,27 +26,15 @@ public class Main {
         int hours;
         int summaryOfMinutesAllMowersWorked = convertToMinutes;
 
-        /*/if (amountOfMower > 0 && amountOfHoursOfWorkOfTheFistMower > 0) {
-            for (int i = 2; i <= amountOfMower; i++) {
-                sumOfMinutesEachMowerWorked += 10;
-                summaryOfMinutesAllMowersWorked += sumOfMinutesEachMowerWorked;
-            }
-            hours = summaryOfMinutesAllMowersWorked / 60; // 250 : 60 = 4,...
-            int minutesLeft = summaryOfMinutesAllMowersWorked - (hours * 60);//convertToMinutes
-
-            System.out.println("Brigades worked for " + hours + " hours " + minutesLeft + " minutes");
-        } else {
-            System.out.println("Error");
-        }*/
         if(!(amountOfMower > 0 && amountOfHoursOfWorkOfTheFistMower > 0)){
-            throw new IllegalArgumentException("On of the arguments > 0");// Использовать String.format
+            throw new IllegalArgumentException("One of the arguments should be > 0");
         }
         for (int i = 2; i <= amountOfMower; i++) {
             sumOfMinutesEachMowerWorked += 10;
             summaryOfMinutesAllMowersWorked += sumOfMinutesEachMowerWorked;
         }
-        hours = summaryOfMinutesAllMowersWorked / 60; // 250 : 60 = 4,... Переделать на Date.format
-        int minutesLeft = summaryOfMinutesAllMowersWorked - (hours * 60);//convertToMinutes Переделать на Date.format
+        hours = summaryOfMinutesAllMowersWorked / 60;
+        int minutesLeft = summaryOfMinutesAllMowersWorked - (hours * 60);
 
         System.out.println("Brigades worked for " + hours + " hours " + minutesLeft + " minutes");
 
