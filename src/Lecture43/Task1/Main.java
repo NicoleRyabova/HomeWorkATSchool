@@ -14,8 +14,8 @@ public class Main {
         int maximumNumber = array[0];
 
         for (int i = 0; i <= array.length - 1; i++) {
-            if (Integer.parseInt(args[i]) > maximumNumber) {
-                maximumNumber = Integer.parseInt(args[i]);
+            if (array[i] > maximumNumber) {
+                maximumNumber = array[i];
             }
 
         }
