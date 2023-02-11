@@ -13,7 +13,6 @@ import java.util.Random;
 //Для генерации простых чисел можно пользоваться классом
 //java.lang.Math или java.util.Random.
 public class Main {
-    //static int n = 45;
 
     public static int nextInt(int x) {
         Random random = new Random();
@@ -26,7 +25,6 @@ public class Main {
             return false;
         }
 
-        //Run a loop from 2 to n-1
         for (int i = 2; i <= b; i++) {
             for (int j = 2; j <= Math.sqrt(b); j++) {
                 if (b % j == 0) {
