@@ -1,7 +1,6 @@
 package Lecture47.Task3;
 
 import java.util.ArrayList;
-import java.util.Collection;
 import java.util.Collections;
 import java.util.List;
 
@@ -25,37 +24,67 @@ import java.util.List;
 //В противном случае выведите сообщение об ошибке
 //и завершите программу.
 public class Main {
-    public static void snakePrint(int n, int col) {
-        int value = 1;
-        int iteration = 0;
-        List<Integer> list = new ArrayList<>();
-        for (int i = 1; i <= n; i += col) {
-            iteration += 1;
-
-            for (int j = 1; j <= col; j++) {
-                if (!(value > n)) {
-                    list.add(value);
-                }
-                value++;
-                if (j == col) {
-                    if (iteration % 2 == 0) {
-                        Collections.reverse(list);
-                        System.out.println(list);
-                    } else {
-                        System.out.println(list);
-                    }
-                    list.clear();
-                }
-            }
-        }
-    }
-
-
-
     public static void main(String[] args) {
         int n = Integer.parseInt(args[0]);
         int col = Integer.parseInt(args[1]);
 
-        snakePrint(n, col);
+        method(n, col);
+    }
+
+    static void method(int n, int col) {
+
+        if (!(n >= 1) || !(col > 0)) {
+            throw new IllegalArgumentException("custom exception");
+        }
+
+        List<String> snakeList = new ArrayList<>();
+        int value = 1;
+        int iteration = 0;
+        for (int i = 1; i <= n; i += col) {
+
+            iteration += 1;
+            for (int j = 1; j <= col; j++) {
+
+                if (!(value > n)) {
+                    snakeList.add(String.valueOf(value));
+                }
+
+                if (j == col) {
+
+                    if (iteration % 2 == 0) {
+                        Collections.reverse(snakeList);
+
+                        if (snakeList.size() != col) {
+
+                            List<String> anotherList = new ArrayList<>();
+
+                            for (int e = 1; e <= col - snakeList.size(); e++) {
+                                anotherList.add(getPlaceholder(value));
+                            }
+
+                            anotherList.addAll(snakeList);
+
+                            System.out.println(replaces(anotherList));
+                        } else {
+                            System.out.println(replaces(snakeList));
+                        }
+                    } else {
+                        System.out.println(replaces(snakeList));
+                    }
+                    snakeList.clear();
+                }
+                value++;
+            }
+        }
+    }
+
+    private static String replaces(List<String> strings) {
+        return strings.toString().replace("[", "")
+                .replace("]", "")
+                .replace(",", " ");
+    }
+
+    private static String getPlaceholder(Integer value) {
+        return " ".repeat(String.valueOf(value).toCharArray().length);
     }
 }

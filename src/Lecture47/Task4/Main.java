@@ -13,7 +13,7 @@ import java.util.Random;
 //Для генерации простых чисел можно пользоваться классом
 //java.lang.Math или java.util.Random.
 public class Main {
-    static int n = 45;
+    //static int n = 45;
 
     public static int nextInt(int x) {
         Random random = new Random();
@@ -30,7 +30,6 @@ public class Main {
         for (int i = 2; i <= b; i++) {
             for (int j = 2; j <= Math.sqrt(b); j++) {
                 if (b % j == 0) {
-                    System.out.println(b + " Not prime");
                     return false;
                 }
             }
@@ -40,6 +39,7 @@ public class Main {
     }
 
     public static void main(String[] args) {
+        int n = 45;
         while (!(isPrime(nextInt(n)))) {
 
         }
