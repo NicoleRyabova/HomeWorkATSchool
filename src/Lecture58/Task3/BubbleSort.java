@@ -1,5 +1,7 @@
 package Lecture58.Task3;
 
+import static Lecture58.Task1.Main.*;
+
 //Реализуйте метод void bubbleSort(int[] a),
 //который сортирует целочисленные элементы в массиве a по возрастанию (первый элемент - минимальный) согласно алгоритму пузырьковой сортировки.
 //en.wikipedia.org/wiki/Bubble_sort
@@ -8,13 +10,15 @@ package Lecture58.Task3;
 //Затем, используя метод bubbleSort, сортирует созданный массив
 //и выводит элементы отсортированного массива в одну строку, разделив пробелами.
 public class BubbleSort {
-    void bubbleSort(int[] array) {
+    static void bubbleSort(int[] array) {
         int temporaryVariable;
-        boolean isSorted;
+        boolean isSorted; //переменную isSorted оставила, т.к с помощью нее сокращаестя число циклов, т.е после того, как массив отсортирован, больше цикл не выполняется.
+        // Если её убрать, то цикл будет выполняться даже после сортировки, пока цикл не закончится.
+
         for (int i = 0; i < array.length; i++) {
             isSorted = true;
             for (int j = 0; j < array.length - 1; j++) {
-                if (array[j] > array[j + 1]) { // 4 1
+                if (array[j] > array[j + 1]) {
                     temporaryVariable = array[j];
                     array[j] = array[j + 1];
                     array[j + 1] = temporaryVariable;
@@ -29,15 +33,12 @@ public class BubbleSort {
     }
 
     public static void main(String[] args) {
-        int[] array = {2, 4, 1, 19, 13, 20, 14, 3, 7, 5, 8, 14, 6, 18, 17, 12, 9, 11, 10, 15, 16};
+        int[] array = new int[20];
 
         System.out.println("Не отсоритированный массив:");
-        for (int i : array) {
-            System.out.print(i + " ");
-        }
+        fillArray(array);
 
-        BubbleSort bubbleSort = new BubbleSort();
-        bubbleSort.bubbleSort(array);
+        bubbleSort(array);
 
         System.out.println("\n \n" + "Отсоритированный массив:");
         for (int i : array) {

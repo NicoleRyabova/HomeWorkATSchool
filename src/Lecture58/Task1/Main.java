@@ -10,7 +10,7 @@ import java.util.Random;
 //заполняет его случайными значениями, используя метод fillArray,
 //и печатает его элементы в одну строку, разделив пробелами.
 public class Main {
-    static void fillArray(int[] a) {
+   public static void fillArray(int[] a) {
         Random random = new Random();
 
         for (int i = 0; i < a.length; i++) {
@@ -20,7 +20,7 @@ public class Main {
 
     }
 
-    private static String replaces(String strings) {
+     static String replaces(String strings) {
         return Arrays.toString(new String[]{strings}).replace("[", "")
                 .replace("]", "")
                 .replace(", ", " ");

@@ -33,7 +33,9 @@ public class Main {
 
             }
         }
+
         String maxArgument = args[0];
+
         for (int j = 0; j < list.size(); j++) {
 
             if (args[j].length() > maxArgument.length()) {
@@ -55,16 +57,18 @@ public class Main {
 
         int len = s.length();
 
-        for (int i = 0; i < len; i++) {
+        for (int i = 0; i <= len - 1; i++) {
             if (Character.isDigit(s.charAt(i)) || Character.isLetter(s.charAt(i))) {
-                if (Character.isDigit(s.charAt(i))) {
-                    return true;
-                } else if (Character.isLetter(s.charAt(i))) {
-                    return Character.isLowerCase(s.charAt(i)) && s.matches("\\w+");
+                if (Character.isLetter(s.charAt(i))) {
+                    if (!(Character.isLowerCase(s.charAt(i)) && s.matches("\\w+"))) {
+                        return false;
+                    }
                 }
+            } else {
+                return false;
             }
         }
-        return false;
+        return true;
     }
 
     private static String replaces(List<String> strings) {
