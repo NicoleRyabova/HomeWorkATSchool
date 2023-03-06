@@ -31,8 +31,8 @@ public class Main {
         List<String> fileName = new ArrayList<>();
         List<String> pathToFile = new ArrayList<>();
 
-        // Переводим "\" в "/", т.к у меня последний "\ " не печатается, вместо слэша выводит кавычку :(, поэтому пока так
-        String textWithoutSlashes = filePath.replaceAll("\\\\", "/");
+        //У меня весь путь в кавычках, если кавычку в слэш не перевести, то путь "C:\Program Files\Java\bin\" будет выводпиться так: C:\Program Files\Java\ , файл bin"
+        String textWithoutSlashes = filePath.replace("\"", "\\");
 
         for (int i = textWithoutSlashes.length(); i >= textWithoutSlashes.indexOf(1); i--) {
             //Проверяем последний элемент строки, если он равняется слэшу, то выводим ошибку
@@ -64,7 +64,6 @@ public class Main {
                     }
                 }
             }
-
         }
     }
 

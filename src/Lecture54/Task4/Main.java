@@ -16,9 +16,18 @@ package Lecture54.Task4;
 public class Main {
     public static void main(String[] args) {
         StringBuilder text = new StringBuilder(String.valueOf(args[0]));
+        System.out.println(deleteAllSymbolsButDigits(text));
+    }
 
-        text = new StringBuilder(text.toString().replaceAll("[^0-9]", ""));
-        System.out.println(text);
-
+    public static StringBuilder deleteAllSymbolsButDigits(StringBuilder text) {
+        for (int i = 0; i < text.length(); ) {
+            char symbol = text.charAt(i);
+            if (!Character.isDigit(symbol)) {
+                text.delete(i, i + 1);
+            } else {
+                i++;
+            }
+        }
+        return text;
     }
 }
