@@ -1,12 +1,10 @@
 package Lecture75.Task2.Task2.com.fruitbase;
 
 import Lecture75.Task2.Task2.com.fruitbase.fruits.Fruit;
+
 import java.math.BigDecimal;
 import java.util.Arrays;
 import java.util.stream.Stream;
-
-//В класс Cargo надо добавить
-//- общедоступный метод getFruits - с его помощью покупатели получают фрукты из груза
 
 public class Cargo {
     public void setFruits(Fruit[] fruits) {
@@ -15,7 +13,7 @@ public class Cargo {
 
     private Fruit[] fruits;
 
-    public Fruit[] getFruits(){
+    public Fruit[] getFruits() {
         return fruits;
     }
 

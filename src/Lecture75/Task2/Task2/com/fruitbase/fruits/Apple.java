@@ -4,7 +4,6 @@ import java.math.BigDecimal;
 
 public class Apple extends Fruit {
 
-
     @Override
     public double getWeight() {
         return this.weight;

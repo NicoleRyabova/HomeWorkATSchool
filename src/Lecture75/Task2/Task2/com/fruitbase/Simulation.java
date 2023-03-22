@@ -4,13 +4,6 @@ import Lecture75.Task2.Task2.com.fruitbase.customers.Customer;
 import Lecture75.Task2.Task2.com.fruitbase.customers.FreshCustomer;
 import Lecture75.Task2.Task2.com.fruitbase.customers.UniqueCustomer;
 
-//Также добавим специальный класс Simulation, внутри которого теперь будет выполняться программа.
-//Для этого в него перенесем метод main из Fruitbase и внесем изменения:
-//- после создания объекта FruitBase создается массив покупателей, в который будут входит экземпляры обоих видов покупателей
-//- далее для каждого покупателя:
-//    выполняется заказ и формируется груз, выводится информации о грузе
-//    покупателя выбирает из груза интересующие его фрукты
-//    покупатель выводит полученные фрукты
 public class Simulation {
 
     public static void main(String[] args) {

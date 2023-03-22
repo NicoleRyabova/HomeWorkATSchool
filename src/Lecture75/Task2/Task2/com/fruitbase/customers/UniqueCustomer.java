@@ -2,11 +2,11 @@ package Lecture75.Task2.Task2.com.fruitbase.customers;
 
 import Lecture75.Task2.Task2.com.fruitbase.Cargo;
 import Lecture75.Task2.Task2.com.fruitbase.fruits.Fruit;
+
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Stream;
-
 
 public class UniqueCustomer extends Customer {
 
@@ -29,7 +29,7 @@ public class UniqueCustomer extends Customer {
         }
 
         purchases = Stream.concat(Arrays.stream(purchases),
-            Arrays.stream(fruitArrayWithUniqueFruits.toArray(Fruit[]::new))).toArray(Fruit[]::new);
+                Arrays.stream(fruitArrayWithUniqueFruits.toArray(Fruit[]::new))).toArray(Fruit[]::new);
         List<Fruit> newListofFruit = new ArrayList<>(List.of(fruitArray));
         newListofFruit.removeAll(fruitArrayWithUniqueFruits);
         cargo.setFruits(newListofFruit.toArray(Fruit[]::new));
