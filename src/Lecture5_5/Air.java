@@ -26,7 +26,6 @@ public class Air extends NatureElement {
             return new Rain();
         }
         throw new UnsupportedOperationException();
-
     }
 
     @Override

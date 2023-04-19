@@ -4,8 +4,6 @@
 //      Earth + Water = Mud
 package Lecture5_5;
 
-import java.util.NoSuchElementException;
-
 public class Earth extends NatureElement {
     @Override
     public Object connect(NatureElement element) {

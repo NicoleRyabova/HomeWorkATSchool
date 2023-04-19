@@ -4,8 +4,6 @@
 //      Fire + Water = Steam
 package Lecture5_5;
 
-import java.util.NoSuchElementException;
-
 public class Fire extends NatureElement {
     @Override
     public Object connect(NatureElement element) {

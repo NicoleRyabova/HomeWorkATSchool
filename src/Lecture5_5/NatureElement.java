@@ -15,6 +15,8 @@ public abstract class NatureElement {
                 return new Water();
             case "Earth":
                 return new Earth();
+            case "Energy":
+                return new Energy();
             default:
                 throw new NoSuchElementException();
         }

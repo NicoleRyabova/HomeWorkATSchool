@@ -48,8 +48,6 @@ public class Alchemy {
                 exception.printStackTrace();
                 System.out.println("У элемента нет пары");
             }
-
         }
     }
-
 }
