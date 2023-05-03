@@ -61,8 +61,8 @@ public class Main {
     private static Square square = new Square();
 
     public static void main(String[] args) {
-        //Анонимный класс
-        Lecture6_4.Task1.Function wave = new Lecture6_4.Task1.Function() {
+
+            Function wave = new Function() {
             int temp = 0;
 
             public int evaluate(int number) {
@@ -77,13 +77,6 @@ public class Main {
             }
         };
 
-        //лямбда -выражение
-        Function squareeven = (int num) -> {
-            if (num % 2 == 0)
-                return num * num;
-            else
-                return num;
-        };
         // Если нет аргументов, что вылетает исключение
         if (args.length == 0) {
             throw new IllegalArgumentException("Не передано название операции");
@@ -118,7 +111,7 @@ public class Main {
                         int[] arrayForSquare = applyFunction(arrayFilledWithNumbersFromArgs, square);
                         Stream.of(arrayForSquare).forEach(s -> System.out.println(replaces(Arrays.toString(s))));
                         break;
-                    case "Wave": {
+                    case "Wave":
                         System.out.println(replaces(Arrays.toString(arrayFilledWithNumbersFromArgs)));
                         int resIndex = 0;
 
@@ -129,19 +122,22 @@ public class Main {
 
                         System.out.println(replaces(Arrays.toString(arrayFilledWithNumbersFromArgs)));
                         break;
-                    }
-                    case "Squareeven": {
-                        System.out.println(replaces(Arrays.toString(arrayFilledWithNumbersFromArgs)));
-                        int resIndex = 0;
 
-                        for (int index = 1; index < args.length; index++) {
-                            arrayFilledWithNumbersFromArgs[resIndex] = squareeven.evaluate(Integer.parseInt(args[index]));
-                            resIndex++;
+                    case "Squareeven":
+                        System.out.println(replaces(Arrays.toString(arrayFilledWithNumbersFromArgs)));
+                        wave = (int num) -> {
+                            if (num % 2 == 0) {
+                                return num * num;
+                            }
+                            return num;
+                        };
+                        int[] arrayWithEvenNumbers = new int[arrayFilledWithNumbersFromArgs.length];
+                        for (int i = 0; i < arrayWithEvenNumbers.length; i++) {
+                            arrayWithEvenNumbers[i] = wave.evaluate(arrayFilledWithNumbersFromArgs[i]);
                         }
 
-                        System.out.println(replaces(Arrays.toString(arrayFilledWithNumbersFromArgs)));
+                        System.out.println(replaces(Arrays.toString(arrayWithEvenNumbers)));
                         break;
-                    }
                     default:
                         throw new IllegalArgumentException(System.out.printf("Операция %s не поддерживается ", args[0]).toString());
                 }
@@ -180,3 +176,11 @@ public class Main {
                 .replace(", ", " ");
     }
 }
+/*  wave = (int num) -> {
+                            int[] arrayWithEvenNumbers = new int[arrayFilledWithNumbersFromArgs.length];
+                            if (num % 2 == 0) {
+                                arrayWithEvenNumbers[num] = num * num;
+                            }
+                            arrayWithEvenNumbers[num] = num;
+                            return arrayWithEvenNumbers;
+                        };*/
