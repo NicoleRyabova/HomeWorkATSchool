@@ -145,7 +145,6 @@ public class Main {
         }
     }
 
-
     private static int[] applyFunction(int[] arrayOfNumbers, Function method) {
         int[] arrayOfNewNumbers = new int[arrayOfNumbers.length]; // создает массив длинной, как первый массив
 
@@ -176,11 +175,3 @@ public class Main {
                 .replace(", ", " ");
     }
 }
-/*  wave = (int num) -> {
-                            int[] arrayWithEvenNumbers = new int[arrayFilledWithNumbersFromArgs.length];
-                            if (num % 2 == 0) {
-                                arrayWithEvenNumbers[num] = num * num;
-                            }
-                            arrayWithEvenNumbers[num] = num;
-                            return arrayWithEvenNumbers;
-                        };*/
