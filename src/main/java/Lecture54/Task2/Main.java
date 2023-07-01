@@ -25,11 +25,16 @@ import java.util.List;
 //Проверку на наличие и корректность аргумента делать не надо.
 public class Main {
     public static void main(String[] args) {
+        System.out.println(resultPath(args));
+    }
+
+    public static String resultPath(String[] args) {
         String filePath = String.valueOf(args[0]);
         char a = '/';
         char b = '\\';
         List<String> fileName = new ArrayList<>();
         List<String> pathToFile = new ArrayList<>();
+        String pathToFileAndFileNameMessage = "";
 
         //У меня весь путь в кавычках, если кавычку в слэш не перевести, то путь "C:\Program Files\Java\bin\" будет выводпиться так: C:\Program Files\Java\ , файл bin"
         String textWithoutSlashes = filePath.replace("\"", "\\");
@@ -56,15 +61,15 @@ public class Main {
                             for (int e = 0; e <= (textWithoutSlashes.length() - fileName.size() - 1); e++) {
                                 pathToFile.add(String.valueOf(textWithoutSlashes.charAt(e)));
                             }
-                            System.out.println("Путь: " + replaces(pathToFile));
-                            System.out.println("Имя файла: " + replaces(fileName));
+                            pathToFileAndFileNameMessage = "Path: " + replaces(pathToFile) + "\nFile name: " + replaces(fileName);
                             break;
                         }
-
                     }
                 }
             }
+
         }
+        return pathToFileAndFileNameMessage;
     }
 
     private static String replaces(List<String> strings) {

@@ -15,13 +15,14 @@ public class Main {
     public static String text = "Циклом называется многократное выполнение одних и тех же действий.";
 
     public static void main(String[] args) {
+        System.out.println(resultNumber(args));
+    }
+    public static int resultNumber(String[] args){
         //Получаем элемент через аргумент командной строки
         String argument = String.valueOf(args[0]);
 
         String textWithoutSpaces = text.replaceAll(" ", "");
-        System.out.println(textWithoutSpaces.indexOf(argument));
-
-        // Я тут не совсем поняла, в итоге нужно, чтобы была точка в строке, или нет, т.к в примере она имеется, аоэтому чточку в replace не убрала пока
-
+        return textWithoutSpaces.indexOf(argument);
     }
+
 }
