@@ -4,6 +4,8 @@
 //      Fire + Water = Steam
 package Lecture3_10;
 
+import java.util.NoSuchElementException;
+
 public class Fire extends NatureElement {
     @Override
     public Object connect(NatureElement element) {
@@ -16,9 +18,9 @@ public class Fire extends NatureElement {
             return new Lava();
         } else if (element instanceof Water) {
             return new Steam();
+        }else {
+            throw new NoSuchElementException();
         }
-        System.out.println("Нет нового элемента!");
-        return null;
     }
 
     @Override

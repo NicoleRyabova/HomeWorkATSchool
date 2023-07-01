@@ -4,6 +4,8 @@
 //      Earth + Water = Mud
 package Lecture3_10;
 
+import java.util.NoSuchElementException;
+
 public class Earth extends NatureElement {
     @Override
     public Object connect(NatureElement element) {
@@ -15,9 +17,9 @@ public class Earth extends NatureElement {
             return new Lava();
         } else if (element instanceof Water) {
             return new Mud();
+        }else {
+            throw new NoSuchElementException();
         }
-        System.out.println("Нет нового элемента!");
-        return null;
     }
 
     @Override

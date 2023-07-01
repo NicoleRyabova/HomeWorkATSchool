@@ -13,6 +13,9 @@
 //      Air + Water = Rain
 package Lecture3_10;
 
+
+import java.util.NoSuchElementException;
+
 public class Air extends NatureElement {
     @Override
     public Object connect(NatureElement element) {
@@ -24,9 +27,9 @@ public class Air extends NatureElement {
             return new Energy();
         } else if (element instanceof Water) {
             return new Rain();
+        }else {
+            throw new NoSuchElementException();
         }
-        System.out.println("Нет нового элемента!");
-        return null;
     }
 
     @Override
